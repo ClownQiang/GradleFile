@@ -1,0 +1,35 @@
+//这里是存放相关重要信息
+
+android {
+    signingConfigs {
+
+        //debug版本不签名
+        debug {
+        }
+
+        //release版本签名信息
+        release {
+            storeFile file("gradle.jks")
+            storePassword "gradle"
+            keyAlias "gradle"
+            keyPassword "gradle"
+        }
+    }
+
+    //渠道信息，其中myserver，pgyer分别为自己服务器上传使用以及上传蒲公英平台使用
+    productFlavors {
+        xiaomi {}
+        _360 {}
+        baidu {}
+        wandoujia {}
+        umeng {}
+        pgyer {}
+        myserver{}
+    }
+}
+
+//这里是包名以及apk的名字
+ext{
+    packageName = "com.clownqiang.gradletest"
+    appName = "test"
+}
