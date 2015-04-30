@@ -10,7 +10,9 @@
 - upload.sh 上传至蒲公英平台的脚本信息
 - upload.log 上传后的信息会保存到这里
 
-将upload.sh，upload.log，constant.gradle复制到项目主目录下，build.gradle配置到APP文件夹下Gradle中，如果不是，修改相对目录信息即可
+将upload.sh，upload.log，constant.gradle复制到项目主目录下，build.gradle配置到APP文件夹下Gradle中，如果不是，修改相对目录信息即可（详细文件中有注释）
+
+**需要提醒的是脚本中用到了[jq](http://stedolan.github.io/jq/download/)解析json，需要在终端配置好**
 
 使用只需要在终端中运行
 
@@ -34,4 +36,4 @@
 关于[蒲公英账号](http://www.pgyer.com/),申请后填入即可
 
 ###关于我
-一名正在摸爬滚打的新手，项目有很多不足，没有大牛来的那么精炼，关于各种拍砖！！
+一名正在摸爬滚打的新手，项目有很多不足，没有大牛来的那么精炼，欢迎各种拍砖！！
