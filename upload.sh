@@ -2,8 +2,8 @@
 #这里uKey和_api_key分别是蒲公英平台可以获取
 #apkname是选择上传相应渠道的名字
 #uploadurl是固定，蒲公英上传APP的url
-uKey="4a8669a6b944075e0d681c0586975d94"
-_api_key="d00dc6703fe1b936d889571fdd897d87"
+uKey=""
+_api_key=""
 apkname="*pgyer.apk"
 uploadurl="http://www.pgyer.com/apiv1/app/upload"
 echo "uKey=${uKey}"
