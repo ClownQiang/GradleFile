@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply from: '../constant.gradle'
 
 def releaseTime() {
     return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
@@ -10,7 +9,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId packageName
+        applicationId PACKAGE_NAME
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
@@ -18,6 +17,32 @@ android {
 
         // 默认是umeng的渠道
         manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
+    }
+
+    //渠道信息，其中myserver，pgyer分别为自己服务器上传使用以及上传蒲公英平台使用
+    productFlavors {
+        xiaomi {}
+        _360 {}
+        baidu {}
+        wandoujia {}
+        umeng {}
+        myserver {}
+        pgyer {}
+    }
+
+    signingConfigs {
+
+        //debug版本不签名
+        debug {
+        }
+
+        //release版本签名信息
+        release {
+            storeFile file("gradle.jks")
+            storePassword KEYSTORE_PASSWORD
+            keyAlias "gradle"
+            keyPassword KEY_PASSWORD
+        }
     }
 
     buildTypes {
@@ -50,7 +75,7 @@ android {
                     def outputFile = output.outputFile
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
                         // 输出apk名称为test_v1.0_2015-01-15_wandoujia.apk
-                        def fileName = "${appName}_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                        def fileName = "${APP_NAME}_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
                         output.outputFile = new File(outputFile.parent, fileName)
                     }
                 }
@@ -63,7 +88,6 @@ android {
     }
 
 }
-
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
